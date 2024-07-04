@@ -4,7 +4,19 @@ const a = async () => {
   const b = await fetch(
     "https://capstonefa23.vn/testdocker3/weatherforecast"
   ).then((res) => res.json());
-  return b;
+  let c = "";
+  b.map((abc : any) => {
+    c +=
+      abc.date +
+      " " +
+      abc.temperatureC +
+      " " +
+      abc.temperatureF +
+      " " +
+      abc.summary +
+      ", ";
+  });
+  return c;
 };
 
 export default function Home() {
@@ -14,7 +26,6 @@ export default function Home() {
         <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
           Get started by editing&nbsp;
           <code className="font-mono font-bold">src/app/page.tsx</code>
-          <span>{a()}</span>
         </p>
         <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:size-auto lg:bg-none">
           <a
@@ -45,6 +56,8 @@ export default function Home() {
           height={37}
           priority
         />
+        
+        <p>{a()}</p>
       </div>
 
       <div className="mb-32 grid text-center lg:mb-0 lg:w-full lg:max-w-5xl lg:grid-cols-4 lg:text-left">
