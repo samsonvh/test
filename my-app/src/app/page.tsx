@@ -2,21 +2,22 @@ import Image from "next/image";
 
 const a = async () => {
   const b = await fetch(
-    "https://capstonefa23.vn/testdocker3/weatherforecast"
+    // "https://capstonefa23.vn/testdocker3/weatherforecast"
+    "https://reqres.in/api/users?page=2"
   ).then((res) => res.json());
   let c = "";
-  b.map((abc : any) => {
-    c +=
-      abc.date +
-      " " +
-      abc.temperatureC +
-      " " +
-      abc.temperatureF +
-      " " +
-      abc.summary +
-      ", ";
-  });
-  return c;
+  // b.map((abc : any) => {
+  //   c +=
+  //     abc.date +
+  //     " " +
+  //     abc.temperatureC +
+  //     " " +
+  //     abc.temperatureF +
+  //     " " +
+  //     abc.summary +
+  //     ", ";
+  // });
+  return b.page;
 };
 
 export default function Home() {
@@ -56,7 +57,7 @@ export default function Home() {
           height={37}
           priority
         />
-        
+
         <p>{a()}</p>
       </div>
 
