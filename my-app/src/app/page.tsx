@@ -1,7 +1,7 @@
 import Image from "next/image";
 
 const a = async () => {
-  const b = await fetch("https://capstonefa23.vn/sample");
+  const b = await fetch("https://capstonefa23.vn/testdocker3/weatherforecast").then(res => res.json());
   console.log(b);
 };
 
