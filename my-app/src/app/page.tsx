@@ -3,21 +3,22 @@ import Image from "next/image";
 const a = async () => {
   const b = await fetch(
     // "https://capstonefa23.vn/testdocker3/weatherforecast"
-    "https://reqres.in/api/users?page=2"
+    "http://112.213.91.196:5000/weatherforecast"
+    // "https://reqres.in/api/users?page=2"
   ).then((res) => res.json());
   let c = "";
-  // b.map((abc : any) => {
-  //   c +=
-  //     abc.date +
-  //     " " +
-  //     abc.temperatureC +
-  //     " " +
-  //     abc.temperatureF +
-  //     " " +
-  //     abc.summary +
-  //     ", ";
-  // });
-  return b.page;
+  b.map((abc : any) => {
+    c +=
+      abc.date +
+      " " +
+      abc.temperatureC +
+      " " +
+      abc.temperatureF +
+      " " +
+      abc.summary +
+      ", ";
+  });
+  return c;
 };
 
 export default function Home() {
